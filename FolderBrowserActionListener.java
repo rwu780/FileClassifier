@@ -16,13 +16,13 @@ public class FolderBrowserActionListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		File selectedFile = selectDirectory();
 		if(selectedFile != null){
 			textField.setText(selectedFile.getAbsolutePath());			
 		}
 	}
 	
+	//Select Directory using JFileChooser and put it on textField
 	private File selectDirectory(){
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(new File(""));

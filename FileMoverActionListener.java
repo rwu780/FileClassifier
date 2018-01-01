@@ -23,7 +23,6 @@ public class FileMoverActionListener implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		if(sourceTextField.getText() != "" && destinationTextField.getText() != ""){
 			File source = new File(sourceTextField.getText());
 			File destination = new File(destinationTextField.getText());
@@ -35,6 +34,7 @@ public class FileMoverActionListener implements ActionListener{
 		
 	}
 	
+	//Retrieve a list of files from source Location
 	private void getFile(File sourceLocation, File destinateLocation){
 		File[] listOfFiles = sourceLocation.listFiles();
 				
@@ -48,17 +48,22 @@ public class FileMoverActionListener implements ActionListener{
 			}
 		}
 		
+		//End
+		JOptionPane.showMessageDialog(null, "Finish.");
 		System.exit(0);
 	}
 	
+	// Select the file type you want to handle
 	public void handleFile(File file, File destinateFolder){
 		String filename = file.getName();
 		
+		//Only handling the mp3 files
 		if(filename.contains(".mp3")){
 			moveFile(file, destinateFolder);
 		}
 	}
 	
+	//Move file to destinate location
 	public void moveFile(File file, File destinateFolder){
 		String filename = file.getName();
 		String[] parts = filename.split("\\.");
